@@ -18,5 +18,5 @@ An action that downloads and extracts uploaded asset(artifact) associated with g
     # Optional, directory where to extract artifact
     dest_path: extract_here
     # Optional, defaults to current repo
-    repo: ${{github.repository}}
+    repo: ${{GITHUB_REPOSITORY}}
 ```

@@ -14,8 +14,7 @@ on:
         required: false
       repo:
         description: Repository name with owner (like actions/checkout)
-        required: false
-        default: ${{github.repository}}
+        required: true
       dest_path:
         description: Where to unpack the asset
         required: false
@@ -44,7 +43,7 @@ jobs:
           # and extract them if end by .zip.
           asset_name: ${{github.events.inputs.asset_name}}
           # Optional, directory where to extract artifact
-          dest_path: ${{github.events.inputs.asset_name}}
+          dest_path: ${{github.events.inputs.dest_name}}
           # Optional, defaults to current repo
           repo: ${{github.events.inputs.repo}}
 
