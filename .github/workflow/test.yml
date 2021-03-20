@@ -19,18 +19,22 @@ on:
 
 jobs:
   launch:
-    name: test actions
-    uses: Marau78/download-release-asset@v1
-    with:
-      # Optional, GitHub token mandatory for private repo
-      github_token: ${{secrets.GITHUB_TOKEN}}
-      # Mandatory, release tag name
-      release_name: ${{github.events.inputs.release_name}}
-      # Optional, uploaded asset name,
-      # will download all assets if not specified
-      # and extract them if end by .zip.
-      asset_name: ${{github.events.inputs.asset_name}}
-      # Optional, directory where to extract artifact
-      dest_path: ${{github.events.inputs.asset_name}}
-      # Optional, defaults to current repo
-      repo: ${{github.events.inputs.repo}}
+    runs-on: ubuntu-latest
+
+      # Steps represent a sequence of tasks that will be executed as part of the job
+      steps:
+        name: test actions
+        uses: Marau78/download-release-asset@v1
+        with:
+          # Optional, GitHub token mandatory for private repo
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          # Mandatory, release tag name
+          release_name: ${{github.events.inputs.release_name}}
+          # Optional, uploaded asset name,
+          # will download all assets if not specified
+          # and extract them if end by .zip.
+          asset_name: ${{github.events.inputs.asset_name}}
+          # Optional, directory where to extract artifact
+          dest_path: ${{github.events.inputs.asset_name}}
+          # Optional, defaults to current repo
+          repo: ${{github.events.inputs.repo}}
