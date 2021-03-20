@@ -1,4 +1,14 @@
 
+if [[ -z $github_token ]]
+then
+  github_token=${{github.token}}
+fi
+
+if [[ -z $repo ]]
+then
+  repo=${{github.repository}}
+fi
+
 
 url_api="https://api.github.com/repos/$repo/releases/tags/${release_name}"
 
