@@ -1,0 +1,30 @@
+name: Download release asset (artifact)
+description: Download and extract an asset/artifact associated with given release
+author: ChristopheRivier
+branding:
+  icon: download
+  color: green
+inputs:
+  release_name:
+    description: Release Name
+    required: true
+  asset_name:
+    description: Name of the asset (artifact)
+    required: false
+  repo:
+    description: Repository name with owner (like actions/checkout)
+    required: false
+    default: ${{github.repository}}
+  dest_path:
+    description: Where to unpack the asset
+    required: false
+    default: "./"
+  github_token:
+    description: GitHub token
+    required: false
+    default: ${{github.token}}
+runs:
+  using: "composite"
+  steps: 
+    - run: ${{ github.action_path }}/script.sh
+      shell: bash
