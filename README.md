@@ -5,7 +5,7 @@ An action that downloads and extracts uploaded asset(artifact) associated with g
 
 ```yaml
 - name: Download assets release
-  uses: ChristopheRivier/action-download-release-asset@v1
+  uses: Marau78/download-release-asset@v1
   with:
     # Optional, GitHub token mandatory for private repo
     github_token: ${{secrets.GITHUB_TOKEN}}
