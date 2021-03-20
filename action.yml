@@ -13,8 +13,7 @@ inputs:
     required: false
   repo:
     description: Repository name with owner (like actions/checkout)
-    required: false
-    default: ${{GITHUB_REPOSITORY}}
+    required: true
   dest_path:
     description: Where to unpack the asset
     required: false
