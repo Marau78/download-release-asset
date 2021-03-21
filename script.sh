@@ -16,7 +16,9 @@ echo $url_api
 if [[ -z $asset_name ]]
 then
 echo "in the null"
-   artifact_names=($(curl -H "Authorization: token $github_token" "$url_api" | jq '.assets[]  | .name' | sed 's/\"//g'))
+   #artifact_names=($(curl -H "Authorization: token $github_token" "$url_api" | jq '.assets[]  | .name' | sed 's/\"//g'))
+   #urls_art=($(curl -H "Authorization: token $github_token" "$url_api" | jq '.assets[]  | .url' | sed 's/\"//g'))
+   artifact_names=($(curl  "$url_api" | jq '.assets[]  | .name' | sed 's/\"//g'))
    urls_art=($(curl -H "Authorization: token $github_token" "$url_api" | jq '.assets[]  | .url' | sed 's/\"//g'))
  else
    artifact_names=$asset_name
