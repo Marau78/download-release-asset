@@ -21,7 +21,6 @@ inputs:
   github_token:
     description: GitHub token
     required: false
-    default: ${{github.token}}
 runs:
   using: "composite"
   steps: 

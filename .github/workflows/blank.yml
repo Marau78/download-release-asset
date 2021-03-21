@@ -37,13 +37,13 @@ jobs:
           # Optional, GitHub token mandatory for private repo
           github_token: ${{secrets.GITHUB_TOKEN}}
           # Mandatory, release tag name
-          release_name: ${{github.events.inputs.release_name}}
+          release_name: ${{github.event.inputs.release_name}}
           # Optional, uploaded asset name,
           # will download all assets if not specified
           # and extract them if end by .zip.
-          asset_name: ${{github.events.inputs.asset_name}}
+          asset_name: ${{github.event.inputs.asset_name}}
           # Optional, directory where to extract artifact
-          dest_path: ${{github.events.inputs.dest_name}}
+          dest_path: ${{github.event.inputs.dest_name}}
           # Optional, defaults to current repo
-          repo: ${{github.events.inputs.repo}}
+          repo: ${{github.event.inputs.repo}}
 
