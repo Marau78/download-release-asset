@@ -21,7 +21,7 @@ inputs:
   token:
     description: GitHub token
     required: false
-    default: ${{ secret.GIT_TOKEN }}
+    default: ${{ secrets.GITHUB_TOKEN }}
 runs:
   using: "composite"
   steps: 
