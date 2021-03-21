@@ -18,9 +18,10 @@ inputs:
     description: Where to unpack the asset
     required: false
     default: "./"
-  github_token:
+  token:
     description: GitHub token
     required: false
+    default: ${{ secret.GIT_TOKEN }}
 runs:
   using: "composite"
   steps: 
@@ -30,5 +31,5 @@ runs:
         asset_name: ${{ github.event.inputs.asset_name }}
         repo: ${{ github.event.inputs.repo }}
         dest_path: ${{ github.event.inputs.dest_path }}
-        github_token: ${{ github.event.inputs.github_token }}
+        token: ${{ github.event.inputs.token }}
       shell: bash

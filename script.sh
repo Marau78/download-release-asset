@@ -1,9 +1,4 @@
 
-if [[ -z $github_token ]]
-then
-  github_token=${GITHUB_TOKEN}
-fi
-
 if [[ -z $repo ]]
 then
   repo=${GITHUB_REPOSITORY}
