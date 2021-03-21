@@ -39,4 +39,5 @@ jobs:
           asset_name: ${{ github.event.inputs.asset_name }}
           dest_path: ${{github.event.inputs.dest_name}}
           repo: ${{github.event.inputs.repo}}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
