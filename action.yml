@@ -25,4 +25,10 @@ runs:
   using: "composite"
   steps: 
     - run: ${{ github.action_path }}/script.sh
+      env: 
+        release_name: ${{ github.event.inputs.release_name }}
+        asset_name: ${{ github.event.inputs.asset_name }}
+        repo: ${{ github.event.inputs.repo }}
+        dest_path: ${{ github.event.inputs.dest_path }}
+        github_token: ${{ github.event.inputs.github_token }}
       shell: bash
