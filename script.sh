@@ -1,12 +1,12 @@
 
 if [[ -z $github_token ]]
 then
-  github_token=${{github.token}}
+  github_token=${GITHUB_TOKEN}
 fi
 
 if [[ -z $repo ]]
 then
-  repo=${{github.repository}}
+  repo=${GITHUB_REPOSITORY}
 fi
 
 
@@ -39,3 +39,4 @@ do
     [[ ${artifact_names[$i]} == *".zip" ]] && unzip ${artifact_names[$i]}
 
 done
+ls
