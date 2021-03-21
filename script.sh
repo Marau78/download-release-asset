@@ -11,6 +11,7 @@ fi
 
 
 url_api="https://api.github.com/repos/$repo/releases/tags/${release_name}"
+echo $url_api
 
 if [[ -z $asset_name ]]
 then
