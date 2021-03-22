@@ -12,19 +12,19 @@ if [[ -z $asset_name ]]
 then
    if [[ -z $token ]]
    then
-      artifact_names=($(curl "$url_api" | jq '.assets[]  | .name' | sed 's/\"//g'))
-      urls_art=($(curl "$url_api" | jq '.assets[]  | .url' | sed 's/\"//g'))
+      artifact_names=($(curl $url_api | jq '.assets[]  | .name' | sed 's/\"//g'))
+      urls_art=($(curl $url_api | jq '.assets[]  | .url' | sed 's/\"//g'))
    else
-      artifact_names=($(curl -H "Authorization: token $github_token" "$url_api" | jq '.assets[]  | .name' | sed 's/\"//g'))
-      urls_art=($(curl -H "Authorization: token $github_token" "$url_api" | jq '.assets[]  | .url' | sed 's/\"//g'))
+      artifact_names=($(curl -H 'Authorization: token $token' $url_api | jq '.assets[]  | .name' | sed 's/\"//g'))
+      urls_art=($(curl -H 'Authorization: token $token' $url_api | jq '.assets[]  | .url' | sed 's/\"//g'))
    fi
  else
    artifact_names=$asset_name
    if [[ -z $token ]]
    then
-      urls_art=$(curl "$url_api" | jq ".assets[] | select(.name==\"$asset_name\") | .url" | sed 's/\"//g')
+      urls_art=$(curl $url_api | jq ".assets[] | select(.name==\"$asset_name\") | .url" | sed 's/\"//g')
    else
-      urls_art=$(curl -H "Authorization: token $token" "$url_api" | jq ".assets[] | select(.name==\"$asset_name\") | .url" | sed 's/\"//g')
+      urls_art=$(curl -H 'Authorization: token $token' $url_api | jq ".assets[] | select(.name==\"$asset_name\") | .url" | sed 's/\"//g')
    fi
 fi
 
@@ -44,7 +44,7 @@ do
     then
       curl -vLJO -H 'Accept: application/octet-stream' ${urls_art[$i]}
     else
-      curl -vLJO -H 'Accept: application/octet-stream' -H "Authorization: token $token" ${urls_art[$i]}
+      curl -vLJO -H 'Accept: application/octet-stream' -H 'Authorization: token $token' ${urls_art[$i]}
     fi
     [[ ${artifact_names[$i]} == *".zip" ]] && unzip ${artifact_names[$i]}
 

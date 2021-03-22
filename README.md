@@ -8,7 +8,7 @@ An action that downloads and extracts uploaded asset(artifact) associated with g
   uses: Marau78/download-release-asset@v1
   with:
     # Optional, GitHub token mandatory for private repo
-    github_token: ${{secrets.GITHUB_TOKEN}}
+    token: ${{secrets.GITHUB_TOKEN}}
     # Mandatory, release tag name
     release_name: v1.0.0
     # Optional, uploaded asset name,
