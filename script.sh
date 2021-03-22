@@ -1,4 +1,6 @@
 
+env
+
 if [[ -z "$repo" ]]
 then
   echo 'repo not set'
