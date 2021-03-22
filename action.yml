@@ -23,12 +23,14 @@ inputs:
     required: false
 runs:
   using: "composite"
-  steps: 
+  steps:
+    - run: |
+        echo "release_name=${{ github.event.inputs.release_name }}" >> $GITHUB_ENV
+        echo "asset_name=${{ github.event.inputs.asset_name }}" >> $GITHUB_ENV
+        echo "repo=${{ github.event.inputs.repo }}" >> $GITHUB_ENV
+        echo "dest_path=${{ github.event.inputs.dest_path }}" >> $GITHUB_ENV
+        echo "token=${{ github.event.inputs.token }}" >> $GITHUB_ENV
+      shell: bash
+
     - run: ${{ github.action_path }}/script.sh
-      env: 
-        release_name: ${{ github.event.inputs.release_name }}
-        asset_name: ${{ github.event.inputs.asset_name }}
-        repo: ${{ github.event.inputs.repo }}
-        dest_path: ${{ github.event.inputs.dest_path }}
-        token: ${{ github.event.inputs.token }}
       shell: bash
